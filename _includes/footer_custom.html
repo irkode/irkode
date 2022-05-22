@@ -1,0 +1,6 @@
+{% for pagedate in site.data.dates %}
+    {% if page.path == pagedate.path %}
+        <pre class="rifooter">{{ pagedate.timestamp }}</pre>
+        {% break %}
+    {% endif %}
+{% endfor %}
