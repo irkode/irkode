@@ -84,7 +84,7 @@ Just create an _XPM_ file with the desired bitmap and place it in the folder. If
 
 * Declaration "static char * left_active_xpm[]"
 
-  defines character array for the bitmap. At least for _Xfce_ the name is not important. Only the filename is used.
+  defines character array for the bitmap. At least for _Xfce_ the name is not important. Only the filename is used. But it might be a good idea to keep them consistent.
 
 * Layout : "x y c 1" (example "3 4 2 1")
   * a bitmap of _x_*_y_ pixels (3*4)
@@ -179,7 +179,13 @@ Change it to 5 pixels using no color for the remaining three.
 
 ## Fix up fringe
 
-So no color is a bad choice because of transparencies and the overlying icon bitmaps. We need tio use the color of the rest of the title bar. Unfortunately I found no defined color that is the same. So I took a screenshot and used a color picker to get the value. `#1B2224`. So we need a third color here resulting in:
+So no color is a bad choice because of transparencies and the overlay icon bitmaps. We need to use the color of the rest of the title bar. Unfortunately I found no defined color that is the same. So I took a screenshot and a color picker to get the value. `#1B2224`. 
+
+So we need a new color and define it in the `themerc` file. Just add a line at the end defining a name and the color:
+
+  `matcha-sea_active_bg=#1B2224`
+
+Now add this as a third color and here we go:
 
 ```c
 "8 29 3 1",
@@ -195,13 +201,13 @@ So no color is a bad choice because of transparencies and the overlying icon bit
 ".....###",
 ```
 
-| All find now all borders except top are as desired. | ![Border fringe fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/4-fringe-fix.png)
+| All fine now all borders are as intended. | ![Border fringe fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/4-fringe-fix.png)
 
 ## Inactive border
 
-Similar adjustments have to be done for the inactive border. start with the copy, check the result and adjust size and colors. It's a little easier, I style all in the dark gray, so just need to change all colors to `"#      c #1B2224 s matcha-sea_active_bg"`
+Similar adjustments have to be done for the inactive border. Start with the copy of the border files, check the result and adjust size and colors. It's a little easier since we use the same color as the title bar. Mostly it is changing all colors to `"#      c #1B2224 s matcha-sea_active_bg"`
 
-The final result shows imho nice graspable  highlighted borders.
+The final result shows imho nice graspable highlighted borders.
 
 ![Final border theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/5-borders-finished.png)
 
