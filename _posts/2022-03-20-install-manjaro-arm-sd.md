@@ -1,6 +1,8 @@
 ---
-title: Manjaro Arm on Raspi 4 - SD-card
-categories: manjaro raspi
+title: Install Manjaro ARM (minimal) on a RasPi 4 to SD card
+categories: Manjaro RasPi
+tags: install
+excerpt: Brief installation guide for Manjaro minimal on Raspberry PI.
 ---
 
 # Install Manjaro ARM Minimal on a RasPi 4 to SD card

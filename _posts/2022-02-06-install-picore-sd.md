@@ -1,9 +1,11 @@
 ---
-title: piCore on Raspi 4 - SD-card
-categories: picore raspi
+title: Install piCore on a RasPi 4 to SD card
+categories: piCore RasPi
+tags: install
+excerpt: Brief installation guide for piCore on Raspberry PI.
 ---
 
-# Install piCore on a RasPi 4 to SD card
+# {{ page.title }}
 
 This should be a complete list of commands that I used to setup piCore on my Pi 4B using a SD-card.
 

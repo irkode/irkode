@@ -1,23 +1,17 @@
 ---
 title: Enlarge window border resize area (XFCE)
-categories: manjaro xfce
+categories: Manjaro
+tags: Xfce configure
 shortname: xfce-grab-border
-teaser: |
-  Often asked in the [Manjaro forum] and eg. answered in [this thread][1]. 
-
-  So here's what I did on my machine to customize Window decoration to get a better graspable  area for mouse resize.
-  As a bonus the borders are automagically colored, so the active window is highlighted.
-
-  | Matcha-sea               |  Matcha-sea-grab |
-  :-------------------------:|:-------------------------
-  ![Original Matcha-sea theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea.png) | ![Customized Matcha-sea-grad theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea-grab.png)
-
+excerpt: Customize window border width for better grab experience and color highlight.
 ---
 
 # {{ page.title }}
 {: .no_toc }
 
-{{ page.teaser }}
+  | Matcha-sea               |  Matcha-sea-grab |
+  :-------------------------:|:-------------------------
+  ![Original Matcha-sea theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea.png) | ![Customized Matcha-sea-grad theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea-grab.png)
 
 # Table of contents
 {: .no_toc .text-delta }
@@ -28,11 +22,13 @@ teaser: |
 # Disclaimer
 {: .no_toc }
 
-Be vigliant about your configuration - blindly copy paste -- most of the time -- is a bad idea.
+Be vigilant about your configuration - blindly copy paste -- most of the time -- is a bad idea.
 
 Provided as is - no warranty, no guarantee - It may break your system or not.
 
 # Introduction
+
+Often asked in the [Manjaro forum] and eg. answered in [this thread][1]. 
 
 The simple workaround is to use some keyboard shortcuts:
 * [alt]+[f8] and just drag the mouse.
@@ -175,13 +171,13 @@ Change it to 5 pixels using no color for the remaining three.
 ".....   ",
 ```
 
-| Now the border shows up with the desired with. We still have the fringe. | ![Border width fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/3-width-fix.png)
+| Now the border shows up with the desired with. We still have a fringe. | ![Border width fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/3-width-fix.png)
 
 ## Fix up fringe
 
-So no color is a bad choice because of transparencies and the overlay icon bitmaps. We need to use the color of the rest of the title bar. Unfortunately I found no defined color that is the same. So I took a screenshot and a color picker to get the value. `#1B2224`. 
+Using no color is a bad choice because of transparencies and the overlay icon bitmaps. We need to use the color of the rest of the title bar. Unfortunately I found no defined color that is the same. I took a screenshot and a color picker to get the value. `#1B2224`. 
 
-So we need a new color and define it in the `themerc` file. Just add a line at the end defining a name and the color:
+Now define the color in our `themerc` file. Add a line at the end with the definition:
 
   `matcha-sea_active_bg=#1B2224`
 
@@ -214,15 +210,15 @@ The final result shows imho nice graspable highlighted borders.
 
 # What about the window title bar
 
-The title bar is harder to style.  There are icons inside with overlay the border. Unfortunately the icons are not defined with transparency but special colored for _Matcha-sea_. The result when just changing the border images looks a little awkward.
+The title bar is harder to style.  There are icons inside with overlay the border. Unfortunately the icons are not defined with transparency but special colored for _Matcha-sea_. The result when just changing the border images and colors looks a little awkward.
 
-Also it depends it might be affected by the underlying _Gtk_ - It's more than just a simple border definition. Resize usually is done on the changed three borders, so that's it for now.
+Also this might be affected by the underlying _Gtk_ - It's more than just a simple border definition. Resize usually is done on the changed three borders, so that's it for now.
 
 Maybe later.
 
 # Special Applications
 
-Some applications create their own style or use the Gtk ones. I dunno how this is works. sometimes you may tweak that at least partly.
+Some applications create their own style or use the Gtk ones. Sometimes you may tweak that at least partly.
 
 ## Chromium
 
