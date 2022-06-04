@@ -9,9 +9,9 @@ excerpt: Customize window border width for better grab experience and color high
 # {{ page.title }}
 {: .no_toc }
 
-  | Matcha-sea               |  Matcha-sea-grab |
-  :-------------------------:|:-------------------------
-  ![Original Matcha-sea theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea.png) | ![Customized Matcha-sea-grad theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea-grab.png)
+| Matcha-sea               |  Matcha-sea-grab |
+:-------------------------:|:-------------------------
+![Original Matcha-sea theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea.png) | ![Customized Matcha-sea-grad theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea-grab.png)
 
 # Table of contents
 {: .no_toc .text-delta }
@@ -19,12 +19,7 @@ excerpt: Customize window border width for better grab experience and color high
 1. TOC
 {:toc}
 
-# Disclaimer
-{: .no_toc }
-
-Be vigilant about your configuration - blindly copy paste -- most of the time -- is a bad idea.
-
-Provided as is - no warranty, no guarantee - It may break your system or not.
+{% include disclaimer.html %}
 
 # Introduction
 
@@ -114,7 +109,7 @@ Just create an _XPM_ file with the desired bitmap and place it in the folder. If
 
 # Customizing the borders
 
-## Resize borders
+## Change border width
 
 I found the supplied Default/xfwm4 theme provides _XPM_ border definitions wth 5 pixel in width. Just take them.
 
@@ -173,7 +168,7 @@ Change it to 5 pixels using no color for the remaining three.
 
 | Now the border shows up with the desired with. We still have a fringe. | ![Border width fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/3-width-fix.png)
 
-## Fix up fringe
+## Fix up title bar fringe
 
 Using no color is a bad choice because of transparencies and the overlay icon bitmaps. We need to use the color of the rest of the title bar. Unfortunately I found no defined color that is the same. I took a screenshot and a color picker to get the value. `#1B2224`. 
 
@@ -199,7 +194,7 @@ Now add this as a third color and here we go:
 
 | All fine now all borders are as intended. | ![Border fringe fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/4-fringe-fix.png)
 
-## Inactive border
+## Adapt inactive border layout
 
 Similar adjustments have to be done for the inactive border. Start with the copy of the border files, check the result and adjust size and colors. It's a little easier since we use the same color as the title bar. Mostly it is changing all colors to `"#      c #1B2224 s matcha-sea_active_bg"`
 
@@ -208,17 +203,63 @@ The final result shows imho nice graspable highlighted borders.
 ![Final border theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/5-borders-finished.png)
 
 
-# What about the window title bar
+# Customize the title bar
 
-The title bar is harder to style.  There are icons inside with overlay the border. Unfortunately the icons are not defined with transparency but special colored for _Matcha-sea_. The result when just changing the border images and colors looks a little awkward.
+The title bar is harder to style.  There are icons inside with overlay the border. Unfortunately the icons are not defined with transparency but special colored for _Matcha-sea_. The result when just changing the border images appears little awkward.
 
-Also this might be affected by the underlying _Gtk_ - It's more than just a simple border definition. Resize usually is done on the changed three borders, so that's it for now.
+Also this might be affected by the underlying _Gtk_ - It's more than just a simple border definition. 
 
-Maybe later.
+The title bar is made of 5 bitmap definitions named `title-N-state.png`. We will replace the _PNG_ files with our own _XPM_s defining fully colored in our nice green as we did with the borders.
+
+As you can imagine the active titles text color defined as `active_text_color=#afb8c5` in our `themerc` file, which is a light gray, will become unreadable, so we change it to black `active_text_color=#000000`
+
+All 5 _PNG_s are 5x28 pixels. The first line has color #313839 and the latter ones #1B2224. We simple want all green and the title bar in fact seems to be 29 pixels in height (checked from the top-left-active.xpm, so we will add one pixel. We now have no small separator line between title and menu.
+
+```c
+/* XPM */
+static char * title_5_active_xpm[] = {
+"5 29 1 1",
+"1      c #C0C0FF s active_color_1",
+/* 29 lines of these */
+"....."
+};
+```
+
+
+| Quite nice, but we see a border around the Window menu icon on the left and large dark gray areas on the right icons. | ![colored title bar](/images/posts/2022-05-15-manjaro-xfce-resize-border/6-top-active-title-color.png)
+
+## Fix window menu icon color
+
+The left window menu icon has _PNG_ overlays defined for _active_ and _pressed_ state in the dark gray color. I tried with transparency and deleting the image, but then no icon is shown. Looks like there's a xor definition merging this bitmap and the icon image.
+
+| Lets change the two bitmaps `menu-active.png` and `menu-pressed.png` to have a solid fill with _active_color_1_ defined by our theme (#2EB398). We keep the original size 26x16. | ![colored title bar meu icon](/images/posts/2022-05-15-manjaro-xfce-resize-border/7-top-title-menu-colored.png)
+
+## Fix right icons background
+
+All the icons on the right are _PNG_ files with a solid background and smooth edges on the icon. Just switching the background color to be transparent will enable a green background but the edges of the icons are fringed.
+
+Instead of trying to edit the _PNG_s, I found it easier to create new ones.
+
+There are some _SVG_ sources in the _Matcha-sea_ folders and I took some of these, adjusted and changed colors to better fit the green title bar. Saved that as _PNG_ with transparent background and image size 28x28.
+
+Have a look at the screenshot below. On the right side you see some of the original icons with background color and on the left my styled icons including states _prelight_ and _pressed_. I also created new images for the _inactive_ windows.
+
+It should be possible to use these with other title bar colors due to the transparaency and no smothed edges of the icons.
+
+![colored title bar right icons](/images/posts/2022-05-15-manjaro-xfce-resize-border/8-top-title-icons-colored.png)
+
+# Ramp Up
+
+Putting that altogether I got my customized highlighted Window frame.
+
+![final result](/images/posts/2022-05-15-manjaro-xfce-resize-border/9-final-result-small.png)
+
+If you like the style and color, you may just replace the content of your `~/.themes/Matcha-sea-grab/
+xfwm4` folder with the content of [Theme file Archive].
 
 # Special Applications
 
-Some applications create their own style or use the Gtk ones. Sometimes you may tweak that at least partly.
+Some applications create their own style or use the Gtk ones but some offer the possibility to use the window manager style.
 
 ## Chromium
 
@@ -230,6 +271,11 @@ You can force _Chromium_ to use the system style by right clicking on the title 
 
 * Manjaro Quonos 21.2.6 (XFCE)
 
+# Tools used
+
+* Text editor for editing the XPM files (vscode / mousepad)
+* Inkscape for _SVG_ editing and conversion to _PNG_
+
 # Resources
 
 * [Manjaro forum]
@@ -238,6 +284,7 @@ You can force _Chromium_ to use the system style by right clicking on the title 
   * [https://mxlinux.org/wiki/xfce/changing-border-size-with-xfce4-window-manager/](https://mxlinux.org/wiki/xfce/changing-border-size-with-xfce4-window-manager/)
 * [XFCE Linux Wiki]
   * [https://wiki.xfce.org/howto/xfwm4_theme#list_of_frame_and_button_part_names](https://wiki.xfce.org/howto/xfwm4_theme#list_of_frame_and_button_part_names)
+* Download final [Theme file Archive]
 
 [Manjaro forum]: https://forum.manjaro.org
 [1]: https://forum.manjaro.org/t/having-a-hard-time-resizing-windows/86547
@@ -245,3 +292,5 @@ You can force _Chromium_ to use the system style by right clicking on the title 
 [MX Linux wiki]: https://mxlinux.org/wiki/
   
 [XFCE Linux Wiki]: https://wiki.xfce.org/
+
+[Theme file Archive]: /downloads/Matcha-sea-grab-xfwm4.zip
