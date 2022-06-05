@@ -12,8 +12,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           script: |
-            const owner = github.repository_owner 
-            const repo = github.event.repository.name 
+            const owner: ${{ github.repository_owner }}
+            const repo = ${{ github.event.repository.name }}
             const opts = github.rest.actions.listWorkflowRunsForRepo({
               owner,
               repo
