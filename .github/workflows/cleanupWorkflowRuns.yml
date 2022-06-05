@@ -13,8 +13,8 @@ jobs:
         with:
           script: |
             const opts = github.rest.actions.listWorkflowRunsForRepo({
-              owner: 'irkode',
-              repo: 'irkode'
+              'irkode',
+              'irkode'
             })
             const runs = await github.paginate(opts)
             console.log(runs)
