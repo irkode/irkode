@@ -6,15 +6,12 @@ jobs:
   searchRuns:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: octokit/request-action@v2.x
         id: list_workflows
+        with:
+          route: GET /repos/{owner}/{repo}/actions/runs
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          script: |
-            const opts = github.rest.actions.listWorkflowRunsForRepo({
-              'irkode',
-              'irkode'
-            })
-            const runs = await github.paginate(opts)
-            console.log(runs)
+      - run: "echo workflows: ${{ steps.list_workflows.outputs.data }}"
