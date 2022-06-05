@@ -14,4 +14,4 @@ jobs:
           repo: ${{ github.event.repository.name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo ${{ fromJSON(steps.list_workflows.outputs.data.total_count) }}
+      - run: echo ${{ toJSON(steps.list_workflows.outputs.data.total_count) }}
