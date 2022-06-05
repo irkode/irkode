@@ -12,9 +12,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           script: |
+            const owner = ${{ github.repository_owner }},
+            const repo = ${{ github.event.repository.name }}
             const opts = github.rest.actions.listWorkflowRunsForRepo({
-              owner: ${{ github.repository_owner }},
-              repo: ${{ github.event.repository.name }}
+              owner,
+              repo
             })
             const runs = await github.paginate(opts)
             console.log(runs)
