@@ -15,8 +15,8 @@ jobs:
             const owner = github.repository_owner 
             const repo = github.event.repository.name 
             const opts = github.rest.actions.listWorkflowRunsForRepo({
-              owner: owner,
-              repo: repo
+              owner,
+              repo
             })
             const runs = await github.paginate(opts)
             console.log(runs)
