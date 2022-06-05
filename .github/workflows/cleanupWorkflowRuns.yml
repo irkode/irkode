@@ -1,0 +1,19 @@
+name: Clean Up old workflow runs
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  searchRuns:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/request-action@v2.x
+        id: list_workflows
+        with:
+          route: GET /repos/{owner}/{repo}/actions/runs
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: "echo workflows: ${{ steps.list_workflows.outputs.data }}"
