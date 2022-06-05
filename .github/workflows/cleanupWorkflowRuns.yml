@@ -6,7 +6,7 @@ jobs:
   searchRuns:
     runs-on: ubuntu-latest
     steps:
-      - uses: octokit/github-script@v6
+      - uses: actions/github-script@v6
         id: list_workflows
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
