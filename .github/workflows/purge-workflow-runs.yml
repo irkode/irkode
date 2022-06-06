@@ -4,6 +4,10 @@ id: purge-workflow-runs
 on:
   workflow_dispatch:
     inputs:
+      keep:
+        description: "days to keep logs back"
+        default: "30"
+        required: false
       workflow:
         description: "Name of workflow (blank to purge all)"
         default: ""
@@ -15,7 +19,7 @@ jobs:
     steps:
       - uses: irkode/purge-workflows@main
         with:
-          token: ${{ github.token }}
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
+          keep: ${{ github.event.inputs.keep }}
           workflow: ${{ github.event.inputs.workflow }}
