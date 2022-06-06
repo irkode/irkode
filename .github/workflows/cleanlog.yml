@@ -1,20 +1,16 @@
-name: Clean Workflow Logs
+name: Purge Workflows
 
-on: 
+on:
   workflow_dispatch:
     inputs:
-      days_old:
-        description: "The amount of days old to delete"
-        default: "300"
+      days-to-keep:
+        description: "Keep logs newer than this days back"
+        default: "30"
         required: false
 
 jobs:
-  clean-logs:
+  purge-workflows:
     runs-on: ubuntu-latest
     steps:
-      - uses: igorjs/gh-actions-clean-workflow@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.event.repository.name }}
-          days_old: ${{ github.event.inputs.days_old }}
+      - uses: irkode/purge-workflows@main
+          days-to-keep: ${{ github.event.inputs.keep }}
