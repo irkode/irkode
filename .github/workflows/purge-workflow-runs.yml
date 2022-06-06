@@ -18,7 +18,5 @@ jobs:
     steps:
       - uses: irkode/purge-workflows@develop
         with:
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.event.repository.name }}
           keep: ${{ github.event.inputs.keep }}
           workflow: ${{ github.event.inputs.workflow }}
