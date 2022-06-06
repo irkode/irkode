@@ -1,0 +1,21 @@
+name: Purge Workflows
+id: purge-workflow-runs
+
+on:
+  workflow_dispatch:
+    inputs:
+      workflow:
+        description: "Name of workflow (blank to purge all)"
+        default: ""
+        required: false
+
+jobs:
+  purge-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: irkode/purge-workflows@main
+        with:
+          token: ${{ github.token }}
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          workflow: ${{ github.event.inputs.workflow }}
