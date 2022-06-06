@@ -3,10 +3,6 @@ name: Purge Workflows
 on:
   workflow_dispatch:
     inputs:
-      keep:
-        description: "Keep logs newer than this days back"
-        default: "30"
-        required: false
       workflow:
         description: "Name of workflow (blank to purge all)"
         default: ""
@@ -21,5 +17,4 @@ jobs:
           token: ${{ github.token }}
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
-          keep: ${{ github.event.inputs.keep }}
           workflow: ${{ github.event.inputs.workflow }}
