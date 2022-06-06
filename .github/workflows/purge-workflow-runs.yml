@@ -1,5 +1,4 @@
-name: Purge Workflows
-id: purge-workflow-runs
+name: purge-workflow-runs
 
 on:
   workflow_dispatch:
