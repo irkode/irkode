@@ -1,0 +1,15 @@
+baseURL: "https://www.irkode.de/"
+languageCode: "en-us"
+title: ""
+description: "Ready to Rumble"
+email: "79966571+irkode@users.noreply.github.com"
+theme: "github.com/frjo/hugo-theme-zen/v3"
+realfavicongenerator: true
+outputFormats:
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
+outputs:
+  home: ["HTML", "SearchIndex"]

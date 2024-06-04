@@ -1,0 +1,14 @@
+# default destination folders 
+/public/
+/resources/
+
+*.ps1
+
+# hugo internals
+**/.hugo_build.lock
+
+# development stuff
+/node_modules
+
+# temp storage
+/_temp

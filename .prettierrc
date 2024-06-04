@@ -1,0 +1,45 @@
+{
+   "plugins": ["prettier-plugin-go-template", "prettier-plugin-toml"],
+   "endOfLine": "lf",
+   "printWidth": 100,
+   "tabWidth": 3,
+   "overrides": [
+      {
+         "files": [".code-workspace", ".prettierrc"],
+         "options": {
+            "parser": "json",
+            "semi": true
+         }
+      },
+      {
+         "files": ["*.html", "*.gotmpl", "layouts/partials/rest/*"],
+         "options": {
+            "parser": "go-template"
+         }
+      },
+      {
+         "files": "*.md",
+         "options": {
+            "parser": "markdown",
+            "proseWrap": "always",
+            "tabWidth": 3
+         }
+      },
+      {
+         "files": ["*.toml"],
+         "options": {
+            "alignEntries": true,
+            "alignComments": true,
+            "indentEntries": true,
+            "indentTables": true,
+            "tabWidth": 3
+         }
+      },
+      {
+         "files": ["*.yaml", "*.yml"],
+         "options": {
+            "tabWidth": 2
+         }
+      }
+   ]
+}
