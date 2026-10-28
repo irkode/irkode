@@ -11,24 +11,24 @@ disableKinds = ['rss', 'taxonomy', 'term', 'sitemap']
       # maybe a map here if we need more browser storage stuff
       storageKey = "irkode-theme"
 
-      # [params.huggingsite.layoutImages]
-      #    [params.huggingsite.layoutImages.error]
-      #       image   = "img/error.png"
-      #       overlay = "img/site-overlay.png"
-      #    [params.huggingsite.layoutImages.page]
-      #       overlay = ""
-      #       size    = 96
-      #    [params.huggingsite.layoutImages.about]
-      #       overlay = "img/site-overlay.png"
-      #       size    = 192
-      #    [params.huggingsite.images.logo]
-      #       image   = "img/logo.png"
-      #       overlay = "img/logo-overlay.png"
-      #       size    = 48
-      #    [params.huggingsite.images.site]
-      #       image   = "img/site.png"
-      #       overlay = "img/site-overlay.png"
-      #       size    = 192
+      [params.huggingsite.layoutImages]
+         [params.huggingsite.layoutImages.error]
+            image   = "img/error.png"
+            overlay = "img/site-overlay.png"
+            #    [params.huggingsite.layoutImages.page]
+            #       overlay = ""
+            #       size    = 96
+            #    [params.huggingsite.layoutImages.about]
+            #       overlay = "img/site-overlay.png"
+            #       size    = 192
+            #    [params.huggingsite.images.logo]
+            #       image   = "img/logo.png"
+            #       overlay = "img/logo-overlay.png"
+            #       size    = 48
+            #    [params.huggingsite.images.site]
+            #       image   = "img/site.png"
+            #       overlay = "img/site-overlay.png"
+            #       size    = 192
 
       [params.huggingsite.urls]
          repo = "https://github.com/irkode/"
