@@ -3,10 +3,11 @@ title: Install Manjaro ARM (minimal) on a RasPi 4 to SD card
 categories: ["Manjaro", "RasPi"]
 tags: ["install"]
 date: "2022-03-20"
-excerpt: Brief installation guide for Manjaro minimal on Raspberry PI.
 ---
 
-# Install Manjaro ARM Minimal on a RasPi 4 to SD card
+Brief installation guide for Manjaro minimal on Raspberry PI.
+
+<!--more-->
 
 This should be a complete list of commands that I used to setup piCore on my Pi 4B using a SD-card.
 
@@ -19,7 +20,7 @@ I won't get in details about how Manjaro ARM works but I list some resources in 
 [Appendix](#appendix). Also networking is not covered as my machines are cable connected and can
 find each other automagically.
 
-lot's of commands shown use _sudo_ to execute with elevated permissions.
+Lot's of commands shown use _sudo_ to execute with elevated permissions.
 
 Be vigilant about your settings - especially disks and partitions.
 

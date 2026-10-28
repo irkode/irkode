@@ -2,6 +2,7 @@
 layout: main
 title: ""
 permalink: /
+description: "Irkode - Stuff, Notes and more"
 ---
 
 ## Welcome @ irkode
@@ -10,8 +11,11 @@ permalink: /
 -  Provided As-Is, no warranty, no guarantee.
 -  It may be helpful to someone or not.
 
-### Starting to create site content
+## Site content
 
-For now I directly use the quite bare Theme starter
-[Hugo Zen Theme](https://github.com/frjo/hugo-theme-zen) from @frjo directly. Ment to be a base for
-a Theme I'll see how far I can get.
+More or less a playground for publishing a site with [Hugo] and [GitHub Pages].
+
+Nevertheless some posts might be interesting for the public audience.
+
+[GitHub Pages]: https://pages.github.com/
+[Hugo]: https://gohugo.io/

@@ -1,14 +1,20 @@
 ---
-title: Install piCore on a RasPi 4 to SD card
+title: Install piCore on RasPi
 categories: ["piCore", "RasPi"]
 tags: ["install"]
-lastmod: "2022-02-06"
-excerpt: Brief installation guide for piCore on Raspberry PI.
+lastmod: "2026-10-17"
 ---
 
-This should be a complete list of commands that I used to setup piCore on my Pi 4B using a SD-card.
+Brief guide for installing piCore on Raspberry PI using an SD card.
+
+<!--more-->
+
+> **_NOTE:_**: just seen on the piCore page that they have a version 17 for 32 and 64 bit available.
+> Which means be vigilant, this guide may not work anymore.
 
 ## Disclaimer
+
+This should be a complete list of commands that I used to setup piCore on my Pi 4B using a SD-card.
 
 It might help you to utilize piCore on your machine. And the Pi specific stuff can be easily
 adjusted to other target machines.
@@ -17,7 +23,7 @@ I won't get in details about how piCore works but I list some resources in the
 [Appendix](#appendix). Also networking is not covered as my machines are cable connected and can
 find each other automagically.
 
-lot's of commands shown use _sudo_ to execute with elevated permissions.
+Lot's of commands shown use _sudo_ to execute with elevated permissions.
 
 Be vigilant about your settings - especially disks and partitions.
 

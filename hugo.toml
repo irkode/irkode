@@ -1,10 +1,56 @@
-baseURL     = "https://www.irkode.de/"
-locale      = "en-us"
-title       = "@Irkode"
-description = "Ready to Rumble"
-email       = "79966571+irkode@users.noreply.github.com"
+baseURL = "https://www.irkode.de/"
+locale  = "en-us"
+title   = "@Irkode"
+email   = "79966571+irkode@users.noreply.github.com"
 
 disableKinds = ['rss', 'taxonomy', 'term', 'sitemap']
+
+[params]
+   description = "My place to play"
+   [params.huggingsite]
+      # maybe a map here if we need more browser storage stuff
+      storageKey = "irkode-theme"
+
+      # [params.huggingsite.layoutImages]
+      #    [params.huggingsite.layoutImages.error]
+      #       image   = "img/error.png"
+      #       overlay = "img/site-overlay.png"
+      #    [params.huggingsite.layoutImages.page]
+      #       overlay = ""
+      #       size    = 96
+      #    [params.huggingsite.layoutImages.about]
+      #       overlay = "img/site-overlay.png"
+      #       size    = 192
+      #    [params.huggingsite.images.logo]
+      #       image   = "img/logo.png"
+      #       overlay = "img/logo-overlay.png"
+      #       size    = 48
+      #    [params.huggingsite.images.site]
+      #       image   = "img/site.png"
+      #       overlay = "img/site-overlay.png"
+      #       size    = 192
+
+      [params.huggingsite.urls]
+         repo = "https://github.com/irkode/"
+
+# top level entries
+[[menus.main]]
+   name    = 'Posts'
+   pageRef = '/posts'
+
+   weight = 10
+[[menus.main]]
+   name    = 'About'
+   pageRef = '/about'
+   weight  = 20
+
+[markup]
+   [markup.goldmark.renderHooks.image]
+      useEmbedded = "always"
+   [markup.goldmark.renderHooks.link]
+      useEmbedded = "fallback"
+
 [module]
+   #    replacements = "github.com/irkode/huggingsite -> ../../huggingsite"
    [[module.imports]]
       path = "github.com/irkode/huggingsite"

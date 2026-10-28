@@ -4,12 +4,15 @@ categories: Manjaro
 tags: ["Xfce", "configure"]
 lastmod: 2022-05-15
 shortname: xfce-grab-border
-excerpt: Customize window border width for better grab experience and color highlight.
 ---
 
-|                                            Matcha-sea                                            | Matcha-sea-grab                                                                                              |
-| :----------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------- |
-| ![Original Matcha-sea theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea.png) | ![Customized Matcha-sea-grad theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/matcha-sea-grab.png) |
+Customize window border width for better grab experience and color highlight.
+
+<!--more-->
+
+|                    Matcha-sea                    |                       Matcha-sea-grab                        |
+| :----------------------------------------------: | :----------------------------------------------------------: |
+| ![Original Matcha-sea theme](img/matcha-sea.png) | ![Customized Matcha-sea-grad theme](img/matcha-sea-grab.png) |
 
 # Introduction
 
@@ -36,10 +39,9 @@ It might help you to customize your theme on Manjaro or any other Xfce based win
 won't get in details how themes work in general or dive deep into the related stuff. Just a brief
 setup to get some fancy border.
 
-| Here's how the default _Matcha-sea_ theme looks like. Nearly no window frame to grab. An the
-difference between active and inactive is not very expressive. Just a slightly brighter title name
-and a red close button. |
-![Matcha-sea default theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/0-matcha-sea-theme.png)
+|                                                         |                                                                                                                                                                                                                          |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
+| ![Matcha-sea default theme](img/0-matcha-sea-theme.png) | Here's how the default _Matcha-sea_ theme looks like. Nearly no window frame to grab. And the difference between active and inactive is not very expressive. Just a slightly brighter title name and a red close button. |     |
 
 # Preparation
 
@@ -73,8 +75,7 @@ draw a new _PNG_ image for the border, but I found it easier to replace the _PNG
 \_XPM_ bitmaps
 
 `left-active.png` file is a one pixel width image resulting in a one pixel border
-![x](/images/posts/2022-05-15-manjaro-xfce-resize-border/left-active.png) which is really hard to
-grab.
+![x](img/left-active.png) which is really hard to grab.
 
 Just create an _XPM_ file with the desired bitmap and place it in the folder. If you do not delete
 the _PNG_ it will be added as an overlay after rendering the _XPM_.
@@ -119,34 +120,40 @@ the _PNG_ it will be added as an overlay after rendering the _XPM_.
    };
    ```
 
-````
+```
+
+```
 
 # Customizing the borders
 
 ## Change border width
 
-I found the supplied Default/xfwm4 theme provides _XPM_ border definitions wth 5 pixel in width. Just take them.
+I found the supplied Default/xfwm4 theme provides _XPM_ border definitions wth 5 pixel in width.
+Just take them.
 
-* Copy these from `/usr/share/themes/Default/xfwm4` to `~/.themes/Matcha-sea-grad/xfwm4`.
-* Delete the corresponding _PNG_ images (*.png)
+-  Copy these from `/usr/share/themes/Default/xfwm4` to `~/.themes/Matcha-sea-grad/xfwm4`.
+-  Delete the corresponding _PNG_ images (\*.png)
 
 I start with the active border images, so I need
 
-* left-active
-* right-active
-* bottom-active
-* bottom-left-active
-* bottom-right active
-* top-left-active
-* top-right-active
+-  left-active
+-  right-active
+-  bottom-active
+-  bottom-left-active
+-  bottom-right active
+-  top-left-active
+-  top-right-active
 
-| And the result is: a thick light gray border and at a closer look you will see it's fringed in the top left and right corner. | ![use borders from theme Default](/images/posts/2022-05-15-manjaro-xfce-resize-border/1-default-border.png)
+| And the result is: a thick light gray border and at a closer look you will see it's fringed in the
+top left and right corner. | ![use borders from theme Default](img/1-default-border.png)
 
 ## Fix up colors
 
-Checking the bitmap I see the used color is `"@      c #C0C0FF s inactive_color_2"` and so I changed it to `"@      c #C0C0FF s active_color_1"`.
+Checking the bitmap I see the used color is `"@      c #C0C0FF s inactive_color_2"` and so I changed
+it to `"@      c #C0C0FF s active_color_1"`.
 
-| Now the borders shows up in the base _Gtk_ defined color but you still see it fringed at the top corners. | ![Border color fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/2-color-fix.png)
+| Now the borders shows up in the base _Gtk_ defined color but you still see it fringed at the top
+corners. | ![Border color fix](img/2-color-fix.png) |
 
 ## Fix up width
 
@@ -163,7 +170,7 @@ Looking at the bitmap definition I found the border is 8 pixels instead of 5.
 "........",
 "........",
 "........",
-````
+```
 
 Change it to 5 pixels using no color for the remaining three.
 
@@ -181,7 +188,7 @@ Change it to 5 pixels using no color for the remaining three.
 ```
 
 | Now the border shows up with the desired with. We still have a fringe. |
-![Border width fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/3-width-fix.png)
+![Border width fix](img/3-width-fix.png)
 
 ## Fix up title bar fringe
 
@@ -209,8 +216,7 @@ Now add this as a third color and here we go:
 ".....###",
 ```
 
-| All fine now all borders are as intended. |
-![Border fringe fix](/images/posts/2022-05-15-manjaro-xfce-resize-border/4-fringe-fix.png)
+| All fine now all borders are as intended. | ![Border fringe fix](img/4-fringe-fix.png)
 
 ## Adapt inactive border layout
 
@@ -220,7 +226,7 @@ as the title bar. Mostly it is changing all colors to `"#      c #1B2224 s match
 
 The final result shows imho nice graspable highlighted borders.
 
-![Final border theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/5-borders-finished.png)
+![Final border theme](img/5-borders-finished.png)
 
 # Customize the title bar
 
@@ -254,8 +260,7 @@ static char * title_5_active_xpm[] = {
 ```
 
 | Quite nice, but we see a border around the Window menu icon on the left and large dark gray areas
-on the right icons. |
-![colored title bar](/images/posts/2022-05-15-manjaro-xfce-resize-border/6-top-active-title-color.png)
+on the right icons. | ![colored title bar](img/6-top-active-title-color.png)
 
 ## Fix window menu icon color
 
@@ -265,7 +270,7 @@ there's a xor definition merging this bitmap and the icon image.
 
 | Lets change the two bitmaps `menu-active.png` and `menu-pressed.png` to have a solid fill with
 _active_color_1_ defined by our theme (#2EB398). We keep the original size 26x16. |
-![colored title bar meu icon](/images/posts/2022-05-15-manjaro-xfce-resize-border/7-top-title-menu-colored.png)
+![colored title bar meu icon](img/7-top-title-menu-colored.png)
 
 ## Fix right icons background
 
@@ -286,13 +291,13 @@ created new images for the _inactive_ windows.
 It should be possible to use these with other title bar colors due to the transparaency and no
 smothed edges of the icons.
 
-![colored title bar right icons](/images/posts/2022-05-15-manjaro-xfce-resize-border/8-top-title-icons-colored.png)
+![colored title bar right icons](img/8-top-title-icons-colored.png)
 
 # Ramp Up
 
 Putting that altogether I got my customized highlighted Window frame.
 
-![final result](/images/posts/2022-05-15-manjaro-xfce-resize-border/9-final-result-small.png)
+![final result](img/9-final-result-small.png)
 
 If you like the style and color, you may just replace the content of your
 `~/.themes/Matcha-sea-grab/ xfwm4` folder with the content of [Theme file Archive].
@@ -307,7 +312,7 @@ the window manager style.
 You can force _Chromium_ to use the system style by right clicking on the title bar and check 'use
 system title bar and borders`.
 
-![Chromium switch theme](/images/posts/2022-05-15-manjaro-xfce-resize-border/chromium-titlebar.png)
+![Chromium switch theme](img/chromium-titlebar.png)
 
 # System configuration
 
