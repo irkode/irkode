@@ -1,8 +1,10 @@
 ---
-title: Install piCore on RasPi
+title: Install piCore on a RasPi 4 to SD card
 categories: ["piCore", "RasPi"]
 tags: ["install"]
 lastmod: "2026-10-17"
+params:
+   caption: "Install piCore on RasPi 4"
 ---
 
 Brief guide for installing piCore on Raspberry PI using an SD card.
@@ -34,13 +36,13 @@ Blindly copy and paste that stuff may brake and even destroy your running system
 All machines are in the same _wired_ network and are served with DNS/DHCP. piCore detects all at
 boot time so network works OOTB for me.
 
--  **Pi** - this is my Raspi 4B
--  **box** - the standard hostname applied by piCore to the PI
--  **tc** - the standard piCore user with _sudo_ access
--  **host** - my full featured Desktop machine where I prepare everything. [Manjaro Minimal (XFCE)].
-   If you miss a command I use, you might need to install manually. (I don't remember which I
-   installed manually before.)
--  **rik** - user with _sudo_ access on _host_
+- **Pi** - this is my Raspi 4B
+- **box** - the standard hostname applied by piCore to the PI
+- **tc** - the standard piCore user with _sudo_ access
+- **host** - my full featured Desktop machine where I prepare everything. [Manjaro Minimal (XFCE)].
+  If you miss a command I use, you might need to install manually. (I don't remember which I
+  installed manually before.)
+- **rik** - user with _sudo_ access on _host_
 
 ## Introduction
 
@@ -49,8 +51,8 @@ There's is no installer for piCore 13.1 but the image will fire smoothly.
 Release notes on the welcome page only state version 12.0. There's some stuff available for a 13.1
 version. Checking the ports page http://www.tinycorelinux.net/ports.html there are two links
 
--  _Raspberry Pi Headline_ will send you to an arm6 12.x version
--  _Stable releases_ will send you to an arm6 13.x version
+- _Raspberry Pi Headline_ will send you to an arm6 12.x version
+- _Stable releases_ will send you to an arm6 13.x version
 
 Manually browsing the repo you can find some more folders like armv7l and aarch64. but as they are
 not officially exposed I will not use them.
@@ -67,16 +69,16 @@ All options on persistance are there to keep changes between reboots.
 
 So regardless of any of this options you would want to:
 
--  backup your SD-Card to an external drive or other SD
--  use a usb stick/drive for the persistent data \*\* ofc also backing that up
+- backup your SD-Card to an external drive or other SD
+- use a usb stick/drive for the persistent data \*\* ofc also backing that up
 
 ## Prerequisites
 
--  Raspi Model 4B (others may work, too)
-   -  display and keyboard connected (depending on the variant used below)
--  SD card
--  A machine to download, burn, and modify the SD-Card.
-   -  mine is a Manjaro Linux minimal (XFCE) Desktop
+- Raspi Model 4B (others may work, too)
+   - display and keyboard connected (depending on the variant used below)
+- SD card
+- A machine to download, burn, and modify the SD-Card.
+   - mine is a Manjaro Linux minimal (XFCE) Desktop
 
 ## SD-Card preparation
 
@@ -84,10 +86,10 @@ This will be done on the Host.
 
 There are plenty of guides for that. So just brief here.
 
--  download and unzip piCore
-   -  http://tinycorelinux.net/13.x/armv6/releases/RPi/piCore-13.1.0.zip
--  burn to the SD-Card
-   -  I use `raspi-imager`. Easy to use and does the job.
+- download and unzip piCore
+   - http://tinycorelinux.net/13.x/armv6/releases/RPi/piCore-13.1.0.zip
+- burn to the SD-Card
+   - I use `raspi-imager`. Easy to use and does the job.
 
 We now could fire up the raspi using the SD-Card, but let's tweak it a little bit before.
 
@@ -98,12 +100,12 @@ around... but there is not much space currently.
 
 After burning the USB Stick you will have two partitions on your stick.
 
--  Partition 1 - Label piCore-13
+- Partition 1 - Label piCore-13
 
    This holds the Raspi boot files, the linux kernel and the initial root filesystem and has 64 MB.
    Also Raspi `config.txt` is located here.
 
--  Partition 2 - Label piCore_TCE
+- Partition 2 - Label piCore_TCE
 
    This is the data partition where piCore stores initial config, backup files, and optional
    components not contained in the core filesystem.
@@ -115,7 +117,7 @@ This is the Partition we need to resize to get more space for data and applicati
 plenty of guides around how to resize a partition so I won't go in detail but list a brief example
 using `gparted`. The easy one shot option, resizing partition and filesystem.
 
--  check filesystem for errors
+- check filesystem for errors
 
    ```bash
    sudo fsck /dev/sda2
@@ -124,15 +126,15 @@ using `gparted`. The easy one shot option, resizing partition and filesystem.
    ## piCore_TCE: clean, 23/4096 files, 2570/4096 blocks
    ```
 
--  Resize partition and filesystem
+- Resize partition and filesystem
 
-   -  start gparted
-   -  select the USB stick
-   -  on sda2 use Right Mouse Button -> Resize/Move and enter value for new size
-   -  press [Resize/Move]
-   -  press [Apply]
+   - start gparted
+   - select the USB stick
+   - on sda2 use Right Mouse Button -> Resize/Move and enter value for new size
+   - press [Resize/Move]
+   - press [Apply]
 
--  recheck filesystem for errors
+- recheck filesystem for errors
    ```bash
     sudo fsck /dev/sda2
     ## fsck from util-linux 2.37.2
@@ -177,10 +179,10 @@ browser
 
 We need the _keymaps_ extension and have to:
 
--  download kmap extension
--  copy it to /dev/sda2/tce/optional
--  enable load at boot time
-   -  add kernel bootcode
+- download kmap extension
+- copy it to /dev/sda2/tce/optional
+- enable load at boot time
+   - add kernel bootcode
 
 #### Install german keyboard
 
@@ -200,14 +202,14 @@ sudo umount /mnt
 
 A list of available layouts can be found at mirrors in `kmaps.tcz.list`.
 
--  `/dev/sda2/tce/onboot.lst` should look like that now
+- `/dev/sda2/tce/onboot.lst` should look like that now
 
    ```
    openssh.tcz
    kmaps.tcz
    ```
 
--  `/dev/sda1/cmdline.txt` should look like that now
+- `/dev/sda1/cmdline.txt` should look like that now
 
    ```
    zswap.compressor=lz4 zswap.zpool=z3fold console=tty1 root=/dev/ram0 elevator=deadline rootwait quiet nortc loglevel=3 noembed tce=UUID=a36eaf4a-7bdc-4836-83cd-8001db75865a kmap=qwertz/de-latin1-nodeadkeys
@@ -221,12 +223,12 @@ which disallows ssh logins.
 
 If you have display and keyboard attached you can do the following:
 
--  boot from USB Stick
--  wait until the SSH keys are created
--  you will be automatically logged in
--  set a password
-   -  weak passwords are rejected for normal users
-   -  use `sudo passwd tc` to set a weak one if you need
+- boot from USB Stick
+- wait until the SSH keys are created
+- you will be automatically logged in
+- set a password
+   - weak passwords are rejected for normal users
+   - use `sudo passwd tc` to set a weak one if you need
 
 If you can live with that skip the following section
 
@@ -274,9 +276,9 @@ exit ## <3>
 
 Now
 
--  safely eject the stick, plug into the pi, and boot up
--  wait some seconds for it to come up
--  connect to the box as user tc
+- safely eject the stick, plug into the pi, and boot up
+- wait some seconds for it to come up
+- connect to the box as user tc
 
 ```
  [rik@host ~]$ ssh tc@box
@@ -294,14 +296,14 @@ Voila, now we have a working TcCore environment.
 
 ### References
 
--  TinyCore Linux
+- TinyCore Linux
 
-   -  Homepage:: http://tinycorelinux.net/
-   -  Forum:: http://forum.tinycorelinux.net/
-   -  Wiki:: http://wiki.tinycorelinux.net/
-   -  Download Ports:: http://www.tinycorelinux.net/ports.html
-   -  Downloads:: http://tinycorelinux.net/13.x/
-   -  tce extensions:: http://tinycorelinux.net/13.x/armv6/tcz/
+   - Homepage:: http://tinycorelinux.net/
+   - Forum:: http://forum.tinycorelinux.net/
+   - Wiki:: http://wiki.tinycorelinux.net/
+   - Download Ports:: http://www.tinycorelinux.net/ports.html
+   - Downloads:: http://tinycorelinux.net/13.x/
+   - tce extensions:: http://tinycorelinux.net/13.x/armv6/tcz/
 
--  Raspberry PI
-   -  Documentation:: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+- Raspberry PI
+   - Documentation:: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html

@@ -3,6 +3,8 @@ title: Install Manjaro ARM (minimal) on a RasPi 4 to SD card
 categories: ["Manjaro", "RasPi"]
 tags: ["install"]
 date: "2022-03-20"
+params:
+   caption: "Install Manjaro on RasPi"
 ---
 
 Brief installation guide for Manjaro minimal on Raspberry PI.
@@ -31,13 +33,13 @@ Blindly copy and paste that stuff may brake and even destroy your running system
 All machines are in the same _wired_ network and are served with DNS/DHCP. piCore detects all at
 boot time so network works OOTB for me.
 
--  **Pi** - this is my Raspi 4B
--  **manbox** - chosen at first boot
--  **manja** - Chosen at first boot
--  **host** - my full featured Desktop machine where I prepare everything. [Manjaro Minimal (XFCE)].
-   If you miss a command I use, you might need to install manually. (I don't remember which I
-   installed manually before.)
--  **rik** - user with _sudo_ access on _host_
+- **Pi** - this is my Raspi 4B
+- **manbox** - chosen at first boot
+- **manja** - Chosen at first boot
+- **host** - my full featured Desktop machine where I prepare everything. [Manjaro Minimal (XFCE)].
+  If you miss a command I use, you might need to install manually. (I don't remember which I
+  installed manually before.)
+- **rik** - user with _sudo_ access on _host_
 
 ## Introduction
 
@@ -48,11 +50,11 @@ This will be the 64-bit edition, so might not work on older hardware.
 
 ## Prerequisites
 
--  Raspi Model 4B (others may work, too)
-   -  display and keyboard connected
--  SD card
--  A machine to download, burn, and modify the SD-Card.
-   -  mine is a Manjaro Linux minimal (XFCE) Desktop on a x64 machine.
+- Raspi Model 4B (others may work, too)
+   - display and keyboard connected
+- SD card
+- A machine to download, burn, and modify the SD-Card.
+   - mine is a Manjaro Linux minimal (XFCE) Desktop on a x64 machine.
 
 ## SD-Card preparation
 
@@ -60,19 +62,19 @@ This will be done on the Host.
 
 There are plenty of guides for that. So just brief here.
 
--  download Manjaro Arm minimal from
-   -  https://manjaro.org/downloads/arm/raspberry-pi-4/arm8-raspberry-pi-4-minimal/.
--  burn to the SD-Card
-   -  I use `raspi-imager`. Easy to use and does the job.
+- download Manjaro Arm minimal from
+   - https://manjaro.org/downloads/arm/raspberry-pi-4/arm8-raspberry-pi-4-minimal/.
+- burn to the SD-Card
+   - I use `raspi-imager`. Easy to use and does the job.
 
 After burning the USB Stick you will have two partitions on your stick.
 
--  Partition 1 - Label BOOT_MNJRO
+- Partition 1 - Label BOOT_MNJRO
 
    This holds the Raspi boot files, the linux kernel and the initial root filesystem and has 214 MB.
    Also Raspi `config.txt` is located here.
 
--  Partition 2 - Label ROOT_MNJRO
+- Partition 2 - Label ROOT_MNJRO
 
    This is the root partition where Manjaro will be installed. There's no need to manually resize
    that. The installer will take care later.
@@ -82,15 +84,15 @@ After burning the USB Stick you will have two partitions on your stick.
 Plug in the SD to the Pi and fire it up. This will start a Installer basic installer to configure
 basic settings
 
--  Keyboard (choose)
--  User: manja
--  Group: add sudoers
--  Fullname: Manjaro User
--  Password: simple
--  Root Password: complex
--  Timezone: (choose)
--  locale: (choose)
--  hostname: manbox
+- Keyboard (choose)
+- User: manja
+- Group: add sudoers
+- Fullname: Manjaro User
+- Password: simple
+- Root Password: complex
+- Timezone: (choose)
+- locale: (choose)
+- hostname: manbox
 
 Now a summary will be displayed and the system will reboot.
 
@@ -102,13 +104,13 @@ Now just login to the box. You may also directly connect via SSH as this is enab
 
 ### References
 
--  Manjaro Arm Linux
+- Manjaro Arm Linux
 
-   -  Homepage:: http://manjaro.org/
-   -  Forum:: http://https://forum.manjaro.org/
-   -  Wiki:: https://wiki.manjaro.org/index.php/Main_Page/
-   -  UserGuide:: https://manjaro.org/support/userguide/
-   -  Downloads:: https://manjaro.org/downloads/arm/raspberry-pi-4/arm8-raspberry-pi-4-minimal/
+   - Homepage:: http://manjaro.org/
+   - Forum:: http://https://forum.manjaro.org/
+   - Wiki:: https://wiki.manjaro.org/index.php/Main_Page/
+   - UserGuide:: https://manjaro.org/support/userguide/
+   - Downloads:: https://manjaro.org/downloads/arm/raspberry-pi-4/arm8-raspberry-pi-4-minimal/
 
--  Raspberry PI
-   -  Documentation:: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+- Raspberry PI
+   - Documentation:: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html

@@ -4,9 +4,11 @@ categories: Manjaro
 tags: ["Xfce", "configure"]
 lastmod: 2022-05-15
 shortname: xfce-grab-border
+[params]
+  caption: "Grab able XFCE Border Styling"
 ---
 
-Customize window border width for better grab experience and color highlight.
+Customize window border width for better grab experience and color highlight on Manjaro with XFCE.
 
 <!--more-->
 
@@ -20,12 +22,12 @@ Often asked in the [Manjaro forum] and eg. answered in [this thread][1].
 
 The simple workaround is to use some keyboard shortcuts:
 
--  [alt]+[f8] and just drag the mouse.
--  [alt]+[rmb]+[drag]. changes either width or height depending on drag direction
+- [alt]+[f8] and just drag the mouse.
+- [alt]+[rmb]+[drag]. changes either width or height depending on drag direction
 
 There's a third answer in the post telling
 
--  gtk.css css to increase border and/or gripper (may be affected by CSD (client side decoration)).
+- gtk.css css to increase border and/or gripper (may be affected by CSD (client side decoration)).
 
 So I wonder how to adjust that to get a better handling of the standard mouse operations grab and
 drag borders.
@@ -39,9 +41,12 @@ It might help you to customize your theme on Manjaro or any other Xfce based win
 won't get in details how themes work in general or dive deep into the related stuff. Just a brief
 setup to get some fancy border.
 
-|                                                         |                                                                                                                                                                                                                          |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
-| ![Matcha-sea default theme](img/0-matcha-sea-theme.png) | Here's how the default _Matcha-sea_ theme looks like. Nearly no window frame to grab. And the difference between active and inactive is not very expressive. Just a slightly brighter title name and a red close button. |     |
+| | | | ------------------------------------------------------- |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+| --- | | ![Matcha-sea default theme](img/0-matcha-sea-theme.png) | Here's how the default
+_Matcha-sea_ theme looks like. Nearly no window frame to grab. And the difference between active and
+inactive is not very expressive. Just a slightly brighter title name and a red close button. | |
 
 # Preparation
 
@@ -60,10 +65,10 @@ _Matcha-sea_.
 
 ## Content description
 
--  You will find a `themerc` with settings and customized colors there.
+- You will find a `themerc` with settings and customized colors there.
 
--  the others are png images defining the areas of the window decoration depending on the status
-   (active/inactive...).
+- the others are png images defining the areas of the window decoration depending on the status
+  (active/inactive...).
 
    So for example `left-active.png` defines the left border and `bottom-left-active.png` the lower
    left corner of the window decoration when the window is activated.
@@ -82,30 +87,30 @@ the _PNG_ it will be added as an overlay after rendering the _XPM_.
 
 ## XPM in brief
 
--  Declaration "static char \* left_active_xpm[]"
+- Declaration "static char \* left_active_xpm[]"
 
    defines character array for the bitmap. At least for _Xfce_ the name is not important. Only the
    filename is used. But it might be a good idea to keep them consistent.
 
--  Layout : "x y c 1" (example "3 4 2 1")
+- Layout : "x y c 1" (example "3 4 2 1")
 
-   -  a bitmap of _x_\*_y_ pixels (3\*4)
-   -  using _c_ number of colors (2)
+   - a bitmap of _x_\*_y_ pixels (3\*4)
+   - using _c_ number of colors (2)
 
--  Colors: "CHAR c #RGB [s name]" (example: x c #000000 s active_color_1")
+- Colors: "CHAR c #RGB [s name]" (example: x c #000000 s active_color_1")
 
    We have stated we will use two colors in the Layout we will need to two rows here
 
-   -  color all letters _CHAR_ in the _Bitmap_ definition (x)
-   -  use named color _name_ if this is defined by underlying _GTK_ or in the themerc file
-      (active_color_1)
-   -  if not used or undefined use RGB color define with _c_ (#000000)
+   - color all letters _CHAR_ in the _Bitmap_ definition (x)
+   - use named color _name_ if this is defined by underlying _GTK_ or in the themerc file
+     (active_color_1)
+   - if not used or undefined use RGB color define with _c_ (#000000)
 
--  Bitmap "x.x." we said 3\*4, so we need 3 lines of 4 characters
+- Bitmap "x.x." we said 3\*4, so we need 3 lines of 4 characters
 
-   -  every _x_ will be colored in one color and every . in another one
+   - every _x_ will be colored in one color and every . in another one
 
--  Example
+- Example
    ```c++
    /* XPM */
    static char * left_active_xpm[] = {
@@ -131,18 +136,18 @@ the _PNG_ it will be added as an overlay after rendering the _XPM_.
 I found the supplied Default/xfwm4 theme provides _XPM_ border definitions wth 5 pixel in width.
 Just take them.
 
--  Copy these from `/usr/share/themes/Default/xfwm4` to `~/.themes/Matcha-sea-grad/xfwm4`.
--  Delete the corresponding _PNG_ images (\*.png)
+- Copy these from `/usr/share/themes/Default/xfwm4` to `~/.themes/Matcha-sea-grad/xfwm4`.
+- Delete the corresponding _PNG_ images (\*.png)
 
 I start with the active border images, so I need
 
--  left-active
--  right-active
--  bottom-active
--  bottom-left-active
--  bottom-right active
--  top-left-active
--  top-right-active
+- left-active
+- right-active
+- bottom-active
+- bottom-left-active
+- bottom-right active
+- top-left-active
+- top-right-active
 
 | And the result is: a thick light gray border and at a closer look you will see it's fringed in the
 top left and right corner. | ![use borders from theme Default](img/1-default-border.png)
@@ -316,22 +321,22 @@ system title bar and borders`.
 
 # System configuration
 
--  Manjaro Quonos 21.2.6 (XFCE)
+- Manjaro Quonos 21.2.6 (XFCE)
 
 # Tools used
 
--  Text editor for editing the XPM files (vscode / mousepad)
--  Inkscape for _SVG_ editing and conversion to _PNG_
+- Text editor for editing the XPM files (vscode / mousepad)
+- Inkscape for _SVG_ editing and conversion to _PNG_
 
 # Resources
 
--  [Manjaro forum]
-   -  [https://forum.manjaro.org/t/having-a-hard-time-resizing-windows/86547](https://forum.manjaro.org/t/having-a-hard-time-resizing-windows/86547)
--  [MX Linux Wiki]
-   -  [https://mxlinux.org/wiki/xfce/changing-border-size-with-xfce4-window-manager/](https://mxlinux.org/wiki/xfce/changing-border-size-with-xfce4-window-manager/)
--  [XFCE Linux Wiki]
-   -  [https://wiki.xfce.org/howto/xfwm4_theme#list_of_frame_and_button_part_names](https://wiki.xfce.org/howto/xfwm4_theme#list_of_frame_and_button_part_names)
--  Download final [Theme file Archive]
+- [Manjaro forum]
+   - [https://forum.manjaro.org/t/having-a-hard-time-resizing-windows/86547](https://forum.manjaro.org/t/having-a-hard-time-resizing-windows/86547)
+- [MX Linux Wiki]
+   - [https://mxlinux.org/wiki/xfce/changing-border-size-with-xfce4-window-manager/](https://mxlinux.org/wiki/xfce/changing-border-size-with-xfce4-window-manager/)
+- [XFCE Linux Wiki]
+   - [https://wiki.xfce.org/howto/xfwm4_theme#list_of_frame_and_button_part_names](https://wiki.xfce.org/howto/xfwm4_theme#list_of_frame_and_button_part_names)
+- Download final [Theme file Archive]
 
 [Manjaro forum]: https://forum.manjaro.org
 [1]: https://forum.manjaro.org/t/having-a-hard-time-resizing-windows/86547
