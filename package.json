@@ -1,7 +1,6 @@
 {
-  "devDependencies": {
-    "prettier": "^3.2.5",
-    "prettier-plugin-go-template": "^0.0.15",
-    "prettier-plugin-toml": "^2.0.1"
-  }
+   "devDependencies": {
+      "prettier": "^3.9.10",
+      "prettier-plugin-toml": "^4.1.0"
+   }
 }

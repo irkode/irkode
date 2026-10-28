@@ -1,5 +1,5 @@
 {
-   "plugins": ["prettier-plugin-go-template", "prettier-plugin-toml"],
+   "plugins": ["prettier-plugin-toml"],
    "endOfLine": "lf",
    "printWidth": 100,
    "tabWidth": 3,
@@ -9,12 +9,6 @@
          "options": {
             "parser": "json",
             "semi": true
-         }
-      },
-      {
-         "files": ["*.html", "*.gotmpl", "layouts/partials/rest/*"],
-         "options": {
-            "parser": "go-template"
          }
       },
       {

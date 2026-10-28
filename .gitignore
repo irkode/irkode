@@ -1,13 +1,11 @@
-# default destination folders 
-/public/
-/resources/
+# hugo
+.hugo_build.lock
+/public
+/resources
+# don't add external theme components
+/themes
 
-*.ps1
-
-# hugo internals
-**/.hugo_build.lock
-
-# development stuff
+# development
 /node_modules
 
 # temp storage

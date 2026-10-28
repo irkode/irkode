@@ -1,6 +1,6 @@
 module github.com/irkode/irkode
 
-go 1.27.1
+go 1.27.3
 
 require (
 	github.com/frjo/hugo-theme-zen/v3 v3.9.0 // indirect
