@@ -24,8 +24,9 @@
          "options": {
             "alignEntries": true,
             "alignComments": true,
-            "indentEntries": true,
-            "indentTables": true,
+            "indentSubTables": true,
+            "indentTableKeyValuePairs": true,
+            "keyValueEqualsSignAlignment": true,
             "tabWidth": 3
          }
       },
