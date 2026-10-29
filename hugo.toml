@@ -58,7 +58,5 @@ disableKinds = ["rss", "taxonomy", "term", "sitemap"]
       useEmbedded = "fallback"
 
 [module]
-
-   # replacements = "github.com/irkode/huggingsite -> ../../huggingsite"
    [[module.imports]]
       path = "github.com/irkode/huggingsite"
