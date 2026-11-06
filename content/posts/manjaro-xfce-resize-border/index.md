@@ -1,12 +1,13 @@
----
-title: Enlarge window border resize area (XFCE)
-categories: Manjaro
-tags: ["Xfce", "configure"]
-lastmod: 2022-05-15
-shortname: xfce-grab-border
++++
+title = "Enlarge window border resize area (XFCE)"
+categories = ["Manjaro"]
+tags = ["Xfce", "configure"]
+date = 2022-05-15
+shortname = "xfce-grab-border"
+
 [params]
-  caption: "Grab able XFCE Border Styling"
----
+caption = "Grab able XFCE Border Styling"
++++
 
 Customize window border width for better grab experience and color highlight on Manjaro with XFCE.
 

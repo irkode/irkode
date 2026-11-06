@@ -1,15 +1,15 @@
----
-layout: main
-title: ""
-permalink: /
-description: "Irkode - Stuff, Notes and more"
----
++++
+title = "@Irkode"
+
+[params]
+caption = "Irkode - My place to play"
++++
 
 ## Welcome @ irkode
 
--  Just filled in some content.
--  Provided As-Is, no warranty, no guarantee.
--  It may be helpful to someone or not.
+- Just filled in some content.
+- Provided As-Is, no warranty, no guarantee.
+- It may be helpful to someone or not.
 
 ## Site content
 

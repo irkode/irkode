@@ -3,7 +3,8 @@ locale  = "en-us"
 title   = "@Irkode"
 email   = "79966571+irkode@users.noreply.github.com"
 
-disableKinds = ["rss", "taxonomy", "term", "sitemap"]
+disableKinds  = ["rss", "taxonomy", "term", "sitemap"]
+enableGitInfo = true
 
 [params]
    description = "My place to play"
@@ -32,7 +33,7 @@ disableKinds = ["rss", "taxonomy", "term", "sitemap"]
             #       size    = 192
 
       [params.huggingsite.urls]
-         repo = "https://github.com/irkode/"
+         repo = "https://github.com/irkode/irkode/"
 
 # top level entries
 [[menus.main]]

@@ -1,11 +1,12 @@
----
-title: Install piCore on a RasPi 4 to SD card
-categories: ["piCore", "RasPi"]
-tags: ["install"]
-lastmod: "2026-10-17"
-params:
-   caption: "Install piCore on RasPi 4"
----
++++
+title = "Install piCore on a RasPi 4 to SD card"
+categories = ["piCore", "RasPi"]
+tags = ["install"]
+date = 2022-02-06
+
+[params]
+caption = "Install piCore on RasPi 4"
++++
 
 Brief guide for installing piCore on Raspberry PI using an SD card.
 

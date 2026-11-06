@@ -1,11 +1,12 @@
----
-title: Install Manjaro ARM (minimal) on a RasPi 4 to SD card
-categories: ["Manjaro", "RasPi"]
-tags: ["install"]
-date: "2022-03-20"
-params:
-   caption: "Install Manjaro on RasPi"
----
++++
+title = "Install Manjaro ARM (minimal) on a RasPi 4 to SD card"
+categories = ["Manjaro", "RasPi"]
+tags = ["install"]
+date = "2022-03-20"
+
+[params]
+caption = "Install Manjaro on RasPi"
++++
 
 Brief installation guide for Manjaro minimal on Raspberry PI.
 
