@@ -42,12 +42,9 @@ It might help you to customize your theme on Manjaro or any other Xfce based win
 won't get in details how themes work in general or dive deep into the related stuff. Just a brief
 setup to get some fancy border.
 
-| | | | ------------------------------------------------------- |
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-| --- | | ![Matcha-sea default theme](img/0-matcha-sea-theme.png) | Here's how the default
-_Matcha-sea_ theme looks like. Nearly no window frame to grab. And the difference between active and
-inactive is not very expressive. Just a slightly brighter title name and a red close button. | |
+| | |
+| ---------------------------------------------- | --- |
+| Here's how the default _Matcha-sea_ theme looks like. Nearly no window frame to grab. And the difference between active and inactive is not very expressive. Just a slightly brighter title name and a red close button. | ![Matcha-sea default theme](img/0-matcha-sea-theme.png) |
 
 # Preparation
 
@@ -80,8 +77,7 @@ To customize these you have to change or exchange these with the content you lik
 draw a new _PNG_ image for the border, but I found it easier to replace the _PNG_s with simple
 \_XPM_ bitmaps
 
-`left-active.png` file is a one pixel width image resulting in a one pixel border
-![x](img/left-active.png) which is really hard to grab.
+`left-active.png` file is a one pixel width image resulting in a one pixel border ![x](img/left-active.png) which is really hard to grab.
 
 Just create an _XPM_ file with the desired bitmap and place it in the folder. If you do not delete
 the _PNG_ it will be added as an overlay after rendering the _XPM_.
@@ -126,10 +122,6 @@ the _PNG_ it will be added as an overlay after rendering the _XPM_.
    };
    ```
 
-```
-
-```
-
 # Customizing the borders
 
 ## Change border width
@@ -150,16 +142,18 @@ I start with the active border images, so I need
 - top-left-active
 - top-right-active
 
-| And the result is: a thick light gray border and at a closer look you will see it's fringed in the
-top left and right corner. | ![use borders from theme Default](img/1-default-border.png)
+| | |
+| ---------------------------------------------- | --- |
+| The result is: a thick light gray border and at a closer look you will see it's fringed in the top left and right corner. | ![use borders from theme Default](img/1-default-border.png) |
 
 ## Fix up colors
 
 Checking the bitmap I see the used color is `"@      c #C0C0FF s inactive_color_2"` and so I changed
 it to `"@      c #C0C0FF s active_color_1"`.
 
-| Now the borders shows up in the base _Gtk_ defined color but you still see it fringed at the top
-corners. | ![Border color fix](img/2-color-fix.png) |
+| | |
+| ---------------------------------------------- | --- |
+| The borders shows up in the base _Gtk_ defined color but you still see it fringed at the top corners. | ![Border color fix](img/2-color-fix.png) |
 
 ## Fix up width
 
@@ -193,8 +187,9 @@ Change it to 5 pixels using no color for the remaining three.
 ".....   ",
 ```
 
-| Now the border shows up with the desired with. We still have a fringe. |
-![Border width fix](img/3-width-fix.png)
+| | |
+| ---------------------------------------------- | --- |
+| Now the border shows up with the desired with. We still have a fringe. | ![Border width fix](img/3-width-fix.png) |
 
 ## Fix up title bar fringe
 
@@ -222,6 +217,8 @@ Now add this as a third color and here we go:
 ".....###",
 ```
 
+| | |
+| ---------------------------------------------- | ---: |
 | All fine now all borders are as intended. | ![Border fringe fix](img/4-fringe-fix.png)
 
 ## Adapt inactive border layout
@@ -265,8 +262,9 @@ static char * title_5_active_xpm[] = {
 };
 ```
 
-| Quite nice, but we see a border around the Window menu icon on the left and large dark gray areas
-on the right icons. | ![colored title bar](img/6-top-active-title-color.png)
+| | |
+| ---------------------------------------------- | --- |
+| Quite nice, but we see a border around the Window menu icon on the left and large dark gray areas on the right icons. | ![colored title bar](img/6-top-active-title-color.png) |
 
 ## Fix window menu icon color
 
@@ -274,9 +272,9 @@ The left window menu icon has _PNG_ overlays defined for _active_ and _pressed_ 
 gray color. I tried with transparency and deleting the image, but then no icon is shown. Looks like
 there's a xor definition merging this bitmap and the icon image.
 
-| Lets change the two bitmaps `menu-active.png` and `menu-pressed.png` to have a solid fill with
-_active_color_1_ defined by our theme (#2EB398). We keep the original size 26x16. |
-![colored title bar meu icon](img/7-top-title-menu-colored.png)
+| | |
+| ---------------------------------------------- | --- |
+| Lets change the two bitmaps `menu-active.png` and `menu-pressed.png` to have a solid fill with _active_color_1_ defined by our theme (#2EB398). We keep the original size 26x16. | ![colored title bar meu icon](img/7-top-title-menu-colored.png) |
 
 ## Fix right icons background
 
@@ -299,7 +297,7 @@ smothed edges of the icons.
 
 ![colored title bar right icons](img/8-top-title-icons-colored.png)
 
-# Ramp Up
+# Wrap Up
 
 Putting that altogether I got my customized highlighted Window frame.
 

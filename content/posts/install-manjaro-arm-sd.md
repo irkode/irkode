@@ -108,10 +108,10 @@ Now just login to the box. You may also directly connect via SSH as this is enab
 - Manjaro Arm Linux
 
    - Homepage:: http://manjaro.org/
-   - Forum:: http://https://forum.manjaro.org/
-   - Wiki:: https://wiki.manjaro.org/index.php/Main_Page/
-   - UserGuide:: https://manjaro.org/support/userguide/
-   - Downloads:: https://manjaro.org/downloads/arm/raspberry-pi-4/arm8-raspberry-pi-4-minimal/
+   - Forum:: https://forum.manjaro.org/
+   - Wiki:: https://wiki.manjaro.org/
+   - UserGuide:: https://manjaro.org/documentation/
+   - Downloads:: https://github.com/manjaro-arm/rpi4-images/releases/latest
 
 - Raspberry PI
    - Documentation:: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
