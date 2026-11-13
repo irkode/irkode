@@ -11,7 +11,7 @@ enableGitInfo = true
 
    [params.huggingsite]
       # maybe a map here if we need more browser storage stuff
-      storageKey = "irkode-theme"
+      # browserLocalStorageKey = "irkode-theme"
 
       [params.huggingsite.layoutImages]
          [params.huggingsite.layoutImages.error]
