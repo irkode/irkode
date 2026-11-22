@@ -57,6 +57,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
+          hugo mod get -u
           hugo mod graph
           cat go.sum
           hugo \
