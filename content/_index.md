@@ -5,17 +5,27 @@ title = "@Irkode"
 caption = "Irkode - My place to play"
 +++
 
+<!--more-->
+
 ## Welcome @ irkode
 
-- Just filled in some content.
-- Provided As-Is, no warranty, no guarantee.
-- It may be helpful to someone or not.
+More or less a playground for publishing a site with [Hugo][hugo], [GitHub Pages][ghpages] and my
+personal theme [Hugging Site][huggingsite].
+
+Nevertheless some posts might be interesting to the public audience.
 
 ## Site content
 
-More or less a playground for publishing a site with [Hugo] and [GitHub Pages].
+All stuff published here is "As-Is"
 
-Nevertheless some posts might be interesting for the public audience.
+- This is what _I_ did on _my_ machine(s) in _my_ environment.
+- It should work for others, but may _not_.
+- Most here is just the final version of my notes - not an exact step-by-step guide.
+- Blindly copy 'n' paste stuff is -- as always -- a bad idea. Be vigilant.
+- It might be helpful, useless, or even destructive.
 
-[GitHub Pages]: https://pages.github.com/
-[Hugo]: https://gohugo.io/
+## Some available pages
+
+[hugo]: https://gohugo.io/
+[ghpages]: https://pages.github.com/
+[huggingsite]: https://github.com/irkode/huggingsite
