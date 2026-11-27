@@ -16,7 +16,15 @@ till all reads smooth as an **_ode_**
 More or less a playground for publishing a site with [Hugo][hugo], [GitHub Pages][ghpages] and my
 personal theme [Hugging Site][huggingsite].
 
-Just casue most have one ;-)
+## Site content
+
+All stuff published here is: "As-Is"
+
+- This is what _I_ did on _my_ machine(s) in _my_ environment.
+- It should work for others, but may _not_.
+- Most here is just the final version of my notes - not an exact step-by-step guide.
+- Blindly copy 'n' paste stuff is -- as always -- a bad idea. Be vigilant.
+- It might be helpful, useless, or even destructive.
 
 [Hugo]: https://gohugo.io/
 [ghpages]: https://pages.github.com/
