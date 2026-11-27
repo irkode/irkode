@@ -1,0 +1,3 @@
+[[imports]]
+   path    = "github.com/irkode/huggingsite"
+   version = "v0.0.4"
