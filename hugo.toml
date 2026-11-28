@@ -58,8 +58,3 @@ enableGitInfo = true
 
    [markup.goldmark.renderHooks.link]
       useEmbedded = "fallback"
-
-[module]
-   [[module.imports]]
-      path = "github.com/irkode/huggingsite"
-      version = "v0.0.4"
